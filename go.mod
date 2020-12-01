@@ -3,7 +3,9 @@ module github.com/thinkgos/utppe
 go 1.15
 
 require (
+	github.com/arl/statsviz v0.2.1
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-echarts/statsview v0.3.1
 	github.com/jordan-wright/email v0.0.0-20200824153738-3f5bafa1cd84
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
