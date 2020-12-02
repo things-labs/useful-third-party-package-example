@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//go:embed logo.jpg
+//go:embed static/logo.jpg
 var content []byte
 
 func main() {
