@@ -1,4 +1,4 @@
-oos:
+oss:
   endpoint: oss-cn-hangzhou.aliyuncs.com
   accessKeyId: accessKeyId
   accessKeySecret: accessKeySecret

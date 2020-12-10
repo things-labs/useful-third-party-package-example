@@ -8,24 +8,24 @@ import (
 )
 
 func main() {
-	viper.SetConfigFile("oos/aliyun_oos/config.yaml")
+	viper.SetConfigFile("oss/aliyun_oss/config.yaml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	client, err := oss.New(
-		viper.GetString("oos.endpoint"),
-		viper.GetString("oos.accessKeyId"),
-		viper.GetString("oos.accessKeySecret"),
+		viper.GetString("oss.endpoint"),
+		viper.GetString("oss.accessKeyId"),
+		viper.GetString("oss.accessKeySecret"),
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
-	bucketName := viper.GetString("oos.bucket")
+	bucketName := viper.GetString("oss.bucket")
 
 	bucket, _ := client.Bucket(bucketName)
-	err = bucket.PutObjectFromFile("oos/aliyun_oos/aliyun_oos.go", "oos/aliyun_oos/aliyun_oos.go")
+	err = bucket.PutObjectFromFile("oss/aliyun_oss/aliyun_oss.go", "oss/aliyun_oss/aliyun_oss.go")
 	if err != nil {
 		log.Fatal(err)
 	}
