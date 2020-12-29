@@ -16,8 +16,8 @@ func main() {
 
 	client, err := oss.New(
 		viper.GetString("oss.endpoint"),
-		viper.GetString("oss.accessKeyId"),
-		viper.GetString("oss.accessKeySecret"),
+		viper.GetString("aliyun.accessKeyId"),
+		viper.GetString("aliyun.accessKeySecret"),
 	)
 	if err != nil {
 		log.Fatal(err)

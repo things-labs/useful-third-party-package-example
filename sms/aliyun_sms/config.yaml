@@ -1,6 +1,7 @@
+
 aliyun:
   accessKeyId: accessKeyId
   accessKeySecret: accessKeySecret
-oss:
-  endpoint: oss-cn-hangzhou.aliyuncs.com
+sms:
+  regionId: cn-hangzhou
   bucket: bucket
