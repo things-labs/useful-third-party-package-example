@@ -3,3 +3,14 @@
 非常有用的第三方包示例或新feature,并做简单笔记,以备将来不时之需,可以快速的使用起来.
 
 ## package example
+
+- feature go新版本特性测试
+    - [embed-go1.16](feature/embed-go1.16) go1.16 embed测试
+    
+    
+- [zxing-qrcode](zxing) [zxing](github.com/makiuchi-d/gozxing) 和 [barcode](github.com/boombuler/barcode) 示例
+- [qrcode](qrcode) [qrcode](github.com/skip2/go-qrcode) 与上面为不同实现方案
+- [git](git) [git](github.com/go-git/go-git) git 客户端纯go实现
+
+
+
