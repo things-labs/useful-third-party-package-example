@@ -1,11 +1,13 @@
 package main
 
 import (
+	"log"
 	"math/rand"
 	"strconv"
 	"time"
 
 	"github.com/go-echarts/statsview"
+	"github.com/pkg/browser"
 )
 
 // Visit your browser at http://localhost:18066/debug/statsview
@@ -20,7 +22,11 @@ func main() {
 		// Stop() will shutdown the http server gracefully
 		// mgr.Stop()
 	}()
-
+	time.Sleep(time.Second)
+	err := browser.OpenURL("http://localhost:18066/debug/statsview")
+	if err != nil {
+		log.Fatal(err)
+	}
 	// busy working....
 	// Force the GC to work to make the plots "move".
 	m := map[string][]byte{}

@@ -24,6 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	bmxt, _ := bmp.GetBlackMatrix()
 	fmt.Println(bmxt.ToString("██", "  "))
 }

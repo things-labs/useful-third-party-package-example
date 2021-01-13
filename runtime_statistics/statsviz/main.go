@@ -1,12 +1,14 @@
 package main
 
 import (
+	"log"
 	"math/rand"
 	"strconv"
 	"time"
 
 	"github.com/arl/statsviz"
 	"github.com/gin-gonic/gin"
+	"github.com/pkg/browser"
 )
 
 func main() {
@@ -26,8 +28,21 @@ func main() {
 		}
 	}()
 
+	go func() {
+		time.Sleep(time.Second)
+		err := browser.OpenURL("http://localhost:8080/debug/statsviz")
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
+
 	router := gin.New()
-	router.GET("/debug/statsviz/ws", func(c *gin.Context) { statsviz.Ws(c.Writer, c.Request) })
-	router.GET("/debug/statsviz/statsviz", func(c *gin.Context) { statsviz.Index.ServeHTTP(c.Writer, c.Request) })
+	router.GET("/debug/statsviz/*filepath", func(c *gin.Context) {
+		if c.Param("filepath") == "/ws" {
+			statsviz.Ws(c.Writer, c.Request)
+			return
+		}
+		statsviz.IndexAtRoot("/debug/statsviz").ServeHTTP(c.Writer, c.Request)
+	})
 	router.Run(":8080")
 }
