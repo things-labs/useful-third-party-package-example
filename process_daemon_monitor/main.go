@@ -1,13 +1,10 @@
 package main
 
 import (
-	"bufio"
-	"io"
 	"log"
 	"os"
 	"os/exec"
 	"os/signal"
-	"runtime/debug"
 	"syscall"
 	"time"
 
@@ -85,35 +82,35 @@ func postRun(cmd *cobra.Command, args []string) {
 					time.Sleep(time.Second * 5)
 				}
 				execCmd = exec.Command(execName, args...)
+				execCmd.CombinedOutput()
+				// MultiPipe := func(execCmd *exec.Cmd) (io.Reader, error) {
+				// 	stderrReader, err := execCmd.StderrPipe()
+				// 	if err != nil {
+				// 		return nil, err
+				// 	}
+				// 	stdoutReader, err := execCmd.StdoutPipe()
+				// 	if err != nil {
+				// 		return nil, err
+				// 	}
+				// 	return io.MultiReader(stderrReader, stdoutReader), nil
+				// }
 
-				MultiPipe := func(execCmd *exec.Cmd) (io.Reader, error) {
-					stderrReader, err := execCmd.StderrPipe()
-					if err != nil {
-						return nil, err
-					}
-					stdoutReader, err := execCmd.StdoutPipe()
-					if err != nil {
-						return nil, err
-					}
-					return io.MultiReader(stderrReader, stdoutReader), nil
-				}
+				// reader, err := MultiPipe(execCmd)
+				// if err != nil {
+				// 	log.Printf("-----> std multi pipe, %v, restarting...\n", err)
+				// 	continue
+				// }
 
-				reader, err := MultiPipe(execCmd)
-				if err != nil {
-					log.Printf("-----> std multi pipe, %v, restarting...\n", err)
-					continue
-				}
-
-				go func() {
-					defer func() {
-						if err := recover(); err != nil {
-							log.Printf("-----> std multi pipe crashed, %v\nstack:%s", err, string(debug.Stack()))
-						}
-					}()
-					for scanner := bufio.NewScanner(reader); scanner.Scan(); {
-						log.Printf("-----> [std] %s", scanner.Text())
-					}
-				}()
+				// go func() {
+				// 	defer func() {
+				// 		if err := recover(); err != nil {
+				// 			log.Printf("-----> std multi pipe crashed, %v\nstack:%s", err, string(debug.Stack()))
+				// 		}
+				// 	}()
+				// 	for scanner := bufio.NewScanner(reader); scanner.Scan(); {
+				// 		log.Printf("-----> [std] %s", scanner.Text())
+				// 	}
+				// }()
 
 				if err := execCmd.Start(); err != nil {
 					log.Printf("-----> child process start failed, %v, restarting...\n", err)

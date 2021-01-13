@@ -37,6 +37,7 @@ require (
 	github.com/thinkgos/cdpui v0.0.0-20210112084857-acec8bc48e4a
 	github.com/thinkgos/go-core-package v0.1.10
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
+	go.etcd.io/bbolt v1.3.5
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad // indirect
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b // indirect
 	golang.org/x/sys v0.0.0-20210110051926-789bb1bd4061 // indirect
