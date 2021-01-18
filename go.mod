@@ -9,7 +9,7 @@ require (
 	github.com/arl/statsviz v0.2.2
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
-	github.com/fsnotify/fsnotify v1.4.9 // indirect
+	github.com/cheekybits/genny v1.0.0
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-echarts/statsview v0.3.4
 	github.com/go-git/go-git/v5 v5.2.0
@@ -26,6 +26,7 @@ require (
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/makiuchi-d/gozxing v0.0.0-20200903113411-25f730ed83da
 	github.com/nats-io/nuid v1.0.1
+	github.com/nxadm/tail v1.4.6
 	github.com/pkg/browser v0.0.0-20201207095918-0426ae3fba23
 	github.com/pquerna/otp v1.3.0
 	github.com/rs/xid v1.2.1
@@ -35,10 +36,9 @@ require (
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/viper v1.7.1
 	github.com/thinkgos/cdpui v0.0.0-20210112084857-acec8bc48e4a
-	github.com/thinkgos/go-core-package v0.1.10
+	github.com/thinkgos/x v0.2.1
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.etcd.io/bbolt v1.3.5
-	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad // indirect
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b // indirect
 	golang.org/x/sys v0.0.0-20210110051926-789bb1bd4061 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect

@@ -25,3 +25,4 @@
 
 - [git](git) [git](github.com/go-git/go-git) git 客户端纯go实现
 - [process_daemon_monitor](process_daemon_monitor) 自守护加监控
+- [tail](tail) [tail](github.com/hpcloud/tail) or 更新了的[tail](github.com/nxadm/tail) 类似linux命令tail 

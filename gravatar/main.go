@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/thinkgos/go-core-package/extos"
-	"github.com/thinkgos/go-core-package/lib/algo"
+	"github.com/thinkgos/x/extos"
+	"github.com/thinkgos/x/lib/algo"
 )
 
 // 获取头像
