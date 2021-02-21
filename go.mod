@@ -9,6 +9,7 @@ require (
 	github.com/arl/statsviz v0.2.2
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
+	github.com/bwmarrin/snowflake v0.3.0
 	github.com/cheekybits/genny v1.0.0
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-echarts/statsview v0.3.4
@@ -37,10 +38,12 @@ require (
 	github.com/spf13/viper v1.7.1
 	github.com/thinkgos/cdpui v0.0.0-20210112084857-acec8bc48e4a
 	github.com/thinkgos/x v0.2.1
+	github.com/vishvananda/netlink v1.1.0
+	github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.etcd.io/bbolt v1.3.5
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b // indirect
-	golang.org/x/sys v0.0.0-20210110051926-789bb1bd4061 // indirect
+	golang.org/x/sys v0.0.0-20210119212857-b64e53b001e4 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 )

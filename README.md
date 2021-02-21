@@ -4,6 +4,9 @@
 
 ## package example
 
+- code generate 代码生成器
+    - [genny](code_generate/genny_generics_code) [genny](github.com/cheekybits/genny) 使用genny根据模板生成代码
+    
 - feature go新版本特性测试
     - [embed-go1.16](feature/embed-go1.16) go1.16 embed测试
 
@@ -24,5 +27,5 @@
     - [embedded](database/embedded) [bbolt](https://github.com/etcd-io/bbolt) An embedded key/value database for Go.
 
 - [git](git) [git](github.com/go-git/go-git) git 客户端纯go实现
-- [process_daemon_monitor](process_daemon_monitor) 自守护加监控
-- [tail](tail) [tail](github.com/hpcloud/tail) or 更新了的[tail](github.com/nxadm/tail) 类似linux命令tail 
+- [process_daemon_monitor](process_daemon_monitor) 自守护加监控,采用进程树实现.
+- [tail](tail) [tail](github.com/hpcloud/tail) or 更新了fork分支的[tail](github.com/nxadm/tail) 类似linux命令tail,可用于日志文件读取.

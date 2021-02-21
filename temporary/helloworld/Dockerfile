@@ -1,5 +1,5 @@
 # 编译环境
-FROM golang:1.15.3-alpine3.12 AS builder
+FROM golang:1.15.5-alpine3.12 AS builder
 
 ENV GOPROXY https://goproxy.io,direct
 
@@ -18,7 +18,7 @@ MAINTAINER thinkgos "gb.jiang@fjwanrun.com"
 
 WORKDIR /root
 
-COPY --from=builder /release/helloworld .
+COPY --from=builder /release/helloword .
 
 EXPOSE 80
 
