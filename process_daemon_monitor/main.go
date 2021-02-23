@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -27,62 +28,49 @@ var rootCmd = &cobra.Command{
 		}
 	},
 }
-var (
-	hasDebug bool
-	daemon   bool
-	forever  bool
-)
+var daemon bool
+var forever bool
 
 func init() {
-	rootCmd.PersistentFlags().BoolVar(&hasDebug, "debug", false, "debug log output")
 	rootCmd.PersistentFlags().BoolVar(&daemon, "daemon", false, "run in background")
 	rootCmd.PersistentFlags().BoolVar(&forever, "forever", false, "run in forever, fail and retry")
 	rootCmd.PersistentPreRun = preRun
 	rootCmd.PersistentPostRun = postRun
 }
 
-func preRun(cmd *cobra.Command, args []string) {
-	execName := os.Args[0]
+func preRun(*cobra.Command, []string) {
+	fmt.Println("current pid: ", os.Getpid())
 
+	execName, args := os.Args[0], os.Args[1:]
 	// daemon运行
 	if daemon {
-		args := extstr.DeleteAll(os.Args[1:], "--daemon")
+		args = extstr.DeleteAll(args, "--daemon")
 		execCmd := exec.Command(execName, args...)
 		execCmd.Start()
-		// TODO: 检查相关进程是否已启动??
+
 		format := "%s PID[ %d ] running...\n"
 		if forever {
 			format = "%s<forever> PID[ %d ] running...\n"
 		}
-		log.Println(format, execName, execCmd.Process.Pid)
+		log.Printf(format, execName, execCmd.Process.Pid)
 
 		os.Exit(0)
 	}
-
-	if hasDebug {
-		// cpuProfilingFile, _ = os.Create("cpu.prof")
-		// memProfilingFile, _ = os.Create("memory.prof")
-		// blockProfilingFile, _ = os.Create("block.prof")
-		// goroutineProfilingFile, _ = os.Create("goroutine.prof")
-		// threadcreateProfilingFile, _ = os.Create("threadcreate.prof")
-		// pprof.StartCPUProfile(cpuProfilingFile)
-	}
 }
 
-func postRun(cmd *cobra.Command, args []string) {
+func postRun(*cobra.Command, []string) {
 	var execCmd *exec.Cmd
 
-	execName := os.Args[0]
+	execName, args := os.Args[0], os.Args[1:]
 	if forever {
 		go func() {
-			args := extstr.DeleteAll(os.Args[1:], "--forever")
+			args = extstr.DeleteAll(args, "--forever")
 			for {
 				if execCmd != nil {
 					execCmd.Process.Kill()
 					time.Sleep(time.Second * 5)
 				}
 				execCmd = exec.Command(execName, args...)
-				execCmd.CombinedOutput()
 				// MultiPipe := func(execCmd *exec.Cmd) (io.Reader, error) {
 				// 	stderrReader, err := execCmd.StderrPipe()
 				// 	if err != nil {
@@ -136,17 +124,6 @@ func postRun(cmd *cobra.Command, args []string) {
 		log.Printf("--> kill process PID[ %d ]", execCmd.Process.Pid)
 		execCmd.Process.Kill()
 	}
-	if hasDebug {
-		SaveProfiling()
-	}
-}
-
-func SaveProfiling() {
-	// pprof.Lookup("goroutine").WriteTo(goroutineProfilingFile, 1)
-	// pprof.Lookup("heap").WriteTo(memProfilingFile, 1)
-	// pprof.Lookup("block").WriteTo(blockProfilingFile, 1)
-	// pprof.Lookup("threadcreate").WriteTo(threadcreateProfilingFile, 1)
-	// pprof.StopCPUProfile()
 }
 
 func main() {
