@@ -39,7 +39,7 @@ var message string = "" // 编译不通过：go:embed cannot apply to var with i
 ```
 - 只能内嵌模块内的文件,比如 .git/* 或软链接文件无法匹配；空目录会被忽略；
 - 模式不能包含 `.` 或 `..`,也不能以 `/` 开始,如果要匹配当前目录所有文件,应该使用 `*` 而不是 `.`；
-
+- 以`.`或`_`开头的文件或目录将被忽略
 ## 标准库
 
 和 embed 相关的标准库有 5 个,其中 2 个是新增的:embed 和 io/fs；net/http,text/template 和 html/template 包依赖 io/fs 包,而 embed.FS 类型实现了 io/fs 包的 FS 接口,因此这 3 个包可以使用 embed.FS.（Go1.16 发布时可能还会增加其他包或修改一些包的内容
