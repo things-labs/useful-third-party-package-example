@@ -11,6 +11,7 @@ require (
 	github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/cheekybits/genny v1.0.0
+	github.com/gin-contrib/httpsign v0.0.1
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-echarts/statsview v0.3.4
 	github.com/go-git/go-git/v5 v5.2.0
@@ -29,6 +30,7 @@ require (
 	github.com/nats-io/nuid v1.0.1
 	github.com/nxadm/tail v1.4.6
 	github.com/pkg/browser v0.0.0-20201207095918-0426ae3fba23
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pquerna/otp v1.3.0
 	github.com/rs/xid v1.2.1
 	github.com/satori/go.uuid v1.2.0 // indirect
@@ -42,6 +44,7 @@ require (
 	github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.etcd.io/bbolt v1.3.5
+	go.mongodb.org/mongo-driver v1.4.6
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b // indirect
 	golang.org/x/sys v0.0.0-20210119212857-b64e53b001e4 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
