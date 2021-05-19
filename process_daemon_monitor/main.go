@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"github.com/thinkgos/x/extstr"
+	"github.com/things-go/x/extstr"
 )
 
 // rootCmd represents the base command when called without any subcommands

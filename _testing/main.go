@@ -1,42 +1,48 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
-// Dept 部门
-type Dept struct {
-	ID       int    // 主键
-	PID      int    // 上级主键
-	Children []Dept // 子列表
+// Entry
+type Entry struct {
+	ID       int     // 主键
+	PID      int     // 上级主键
+	Children []Entry // 子列表
 }
 
-func BuildDeptTree(ds []Dept) []Dept {
-	mp := make(map[int][]Dept)
-	for _, v := range ds {
+func ToTree(items []Entry, pid int) []Entry {
+	// 将所有pid相同的放入map的数组中
+	mp := make(map[int][]Entry)
+	for _, v := range items {
 		mp[v.PID] = append(mp[v.PID], v)
 	}
-	tree, ok := mp[0]
+
+	// 确定顶级
+	root, ok := mp[pid]
 	if !ok {
-		return tree
+		return []Entry{}
 	}
-	deepChildrenDept(tree, mp)
-	return tree
+	// 递归顶级确定所有子项
+	deepChildren(root, mp)
+	return root
 }
 
-func deepChildrenDept(item []Dept, mp map[int][]Dept) {
-	for i := 0; i < len(item); i++ {
-		children, ok := mp[item[i].ID]
-		if !ok {
-			continue
+func deepChildren(items []Entry, mp map[int][]Entry) {
+	for i := 0; i < len(items); i++ { // 确定此父级的子项,从map中查找
+		children, ok := mp[items[i].ID]
+		if ok { // 确定此父级是否有子项,有则递归子项
+			deepChildren(children, mp)
+		} else {
+			children = []Entry{}
 		}
-		deepChildrenDept(children, mp)
-		item[i].Children = children
+		items[i].Children = children
 	}
 }
 
-func toDeptTree1(items []Dept) []Dept {
-	tree := make([]Dept, 0)
+func toDeptTree1(items []Entry) []Entry {
+	tree := make([]Entry, 0)
 	for _, itm := range items {
 		if itm.PID == 0 {
 			tree = append(tree, deepChildrenDept1(items, itm))
@@ -45,8 +51,8 @@ func toDeptTree1(items []Dept) []Dept {
 	return tree
 }
 
-func deepChildrenDept1(items []Dept, item Dept) Dept {
-	item.Children = make([]Dept, 0)
+func deepChildrenDept1(items []Entry, item Entry) Entry {
+	item.Children = make([]Entry, 0)
 	for _, itm := range items {
 		if itm.PID == item.ID {
 			item.Children = append(item.Children, deepChildrenDept1(items, itm))
@@ -56,7 +62,7 @@ func deepChildrenDept1(items []Dept, item Dept) Dept {
 }
 
 func main() {
-	var depts = []Dept{
+	var depts = []Entry{
 		{ID: 1, PID: 0},
 		{ID: 2, PID: 1},
 		{ID: 3, PID: 1},
@@ -72,6 +78,6 @@ func main() {
 		{ID: 13, PID: 10},
 		{ID: 14, PID: 10},
 	}
-
-	fmt.Printf("%+v", BuildDeptTree(depts))
+	v, _ := json.MarshalIndent(ToTree(depts, 0), "  ", "  ")
+	fmt.Printf("%+v", string(v))
 }

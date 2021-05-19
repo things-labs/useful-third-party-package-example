@@ -18,6 +18,9 @@ func main() {
 		viper.GetString("sms.cn-hangzhou"),
 		viper.GetString("aliyun.accessKeyId"),
 		viper.GetString("aliyun.accessSecret"))
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	request := dysmsapi.CreateSendSmsRequest()
 	request.Scheme = "https"

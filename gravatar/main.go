@@ -1,13 +1,13 @@
 package main
 
 import (
+	"crypto/md5"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 
-	"github.com/thinkgos/x/extos"
-	"github.com/thinkgos/x/lib/algo"
+	"github.com/things-go/x/extos"
 )
 
 // 获取头像
@@ -16,7 +16,8 @@ func Gravatar(email string, size uint16, isHttps bool) string {
 	if isHttps {
 		gravatarDomain = "https://secure.gravatar.com/avatar"
 	}
-	return fmt.Sprintf("%s/%s?s=%d", gravatarDomain, algo.MD5(email), size)
+	v := md5.Sum([]byte(email))
+	return fmt.Sprintf("%s/%s?s=%d", gravatarDomain, string(v[:]), size)
 }
 
 func main() {
