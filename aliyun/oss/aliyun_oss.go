@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	viper.SetConfigFile("oss/aliyun_oss/config.yaml")
+	viper.SetConfigFile("aliyun/oss/config.yaml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatal(err)
@@ -25,7 +25,7 @@ func main() {
 	bucketName := viper.GetString("oss.bucket")
 
 	bucket, _ := client.Bucket(bucketName)
-	err = bucket.PutObjectFromFile("oss/aliyun_oss/aliyun_oss.go", "oss/aliyun_oss/aliyun_oss.go")
+	err = bucket.PutObjectFromFile("aliyun/oss/aliyun_oss.go", "aliyun/oss/aliyun_oss.go")
 	if err != nil {
 		log.Fatal(err)
 	}

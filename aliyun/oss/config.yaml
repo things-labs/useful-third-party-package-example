@@ -3,4 +3,4 @@ aliyun:
   accessKeySecret: accessKeySecret
 oss:
   endpoint: oss-cn-hangzhou.aliyuncs.com
-  bucket: bucket
+  bucket: go-admin

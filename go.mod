@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/Microsoft/go-winio v0.4.16 // indirect
-	github.com/aliyun/alibaba-cloud-sdk-go v1.61.812
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1095
 	github.com/aliyun/aliyun-oss-go-sdk v2.1.5+incompatible
 	github.com/arl/statsviz v0.2.2
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
@@ -19,6 +19,7 @@ require (
 	github.com/go-resty/resty/v2 v2.3.0
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.2 // indirect
+	github.com/google/uuid v1.2.0 // indirect
 	github.com/gorilla/feeds v1.1.1
 	github.com/guonaihong/gout v0.1.4
 	github.com/imdario/mergo v0.3.11 // indirect
