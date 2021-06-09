@@ -1,16 +1,17 @@
 package main
 
 import (
-	"github.com/pquerna/otp"
-	"github.com/pquerna/otp/totp"
-
 	"bufio"
 	"bytes"
 	"encoding/base32"
 	"fmt"
 	"image/png"
+	"log"
 	"os"
 	"time"
+
+	"github.com/pquerna/otp"
+	"github.com/pquerna/otp/totp"
 )
 
 func display(key *otp.Key, data []byte) {
@@ -55,6 +56,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	// Convert TOTP key into a PNG
 	var buf bytes.Buffer
 	img, err := key.Image(200, 200)
@@ -65,6 +67,7 @@ func main() {
 
 	// display the QR code to the user.
 	display(key, buf.Bytes())
+	log.Println(key.String())
 
 	// Now Validate that the user's successfully added the passcode.
 	fmt.Println("Validating TOTP...")
