@@ -24,7 +24,7 @@
     - [qrcode](image/qrcode) [qrcode](github.com/skip2/go-qrcode) 与上面为不同实现方案
 
 - database
-    - [embedded](database/embedded) [bbolt](https://github.com/etcd-io/bbolt) An embedded key/value database for Go.
+    - [embedded](database/bbolt) [bbolt](https://github.com/etcd-io/bbolt) An embedded key/value database for Go.
 
 - [git](git) [git](github.com/go-git/go-git) git 客户端纯go实现
 - [process_daemon_monitor](process_daemon_monitor) 自守护加监控,采用进程树实现.
