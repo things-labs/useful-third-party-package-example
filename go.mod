@@ -24,6 +24,7 @@ require (
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/gorilla/feeds v1.1.1
 	github.com/guonaihong/gout v0.1.4
+	github.com/hybridgroup/mjpeg v0.0.0-20140228234708-4680f319790e
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/jordan-wright/email v0.0.0-20200824153738-3f5bafa1cd84
 	github.com/json-iterator/go v1.1.11 // indirect
@@ -42,18 +43,18 @@ require (
 	github.com/smartystreets/assertions v1.0.0 // indirect
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/viper v1.7.1
+	github.com/things-go/cdpui v0.0.1-rc1
 	github.com/things-go/x v0.0.2
-	github.com/thinkgos/cdpui v0.0.0-20210112084857-acec8bc48e4a
 	github.com/ugorji/go v1.2.5 // indirect
 	github.com/vishvananda/netlink v1.1.0
 	github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.etcd.io/bbolt v1.3.5
 	go.mongodb.org/mongo-driver v1.4.6
+	gocv.io/x/gocv v0.27.0
 	golang.org/x/crypto v0.0.0-20210513122933-cd7d49e622d5 // indirect
 	golang.org/x/net v0.0.0-20210525063256-abc453219eb5 // indirect
 	golang.org/x/oauth2 v0.0.0-20210514164344-f6687ab2804c
-	golang.org/x/sys v0.0.0-20210511113859-b0526f3d8744 // indirect
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

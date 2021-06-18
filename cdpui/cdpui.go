@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/thinkgos/cdpui"
+	"github.com/things-go/cdpui"
 )
 
 func main() {
