@@ -22,6 +22,7 @@ require (
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/gorilla/feeds v1.1.1
 	github.com/guonaihong/gout v0.1.4
+	github.com/hybridgroup/mjpeg v0.0.0-20140228234708-4680f319790e
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/jordan-wright/email v0.0.0-20200824153738-3f5bafa1cd84
 	github.com/json-iterator/go v1.1.11 // indirect
@@ -49,6 +50,7 @@ require (
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.etcd.io/bbolt v1.3.5
 	go.mongodb.org/mongo-driver v1.4.6
+	gocv.io/x/gocv v0.27.0
 	golang.org/x/crypto v0.0.0-20210513122933-cd7d49e622d5 // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
 	golang.org/x/sys v0.0.0-20210608053332-aa57babbf139 // indirect
