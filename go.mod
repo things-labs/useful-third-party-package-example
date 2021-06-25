@@ -36,6 +36,7 @@ require (
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/labstack/echo/v4 v4.1.17
 	github.com/leodido/go-urn v1.2.1 // indirect
+	github.com/m-zajac/json2go v1.1.4 // indirect
 	github.com/makiuchi-d/gozxing v0.0.0-20200903113411-25f730ed83da
 	github.com/nats-io/nuid v1.0.1
 	github.com/nxadm/tail v1.4.6
